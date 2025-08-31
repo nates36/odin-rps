@@ -12,8 +12,14 @@ function getComputerChoice() {
     }        
 }
 
-function getHumanChoice(string) {
-    let choice = prompt("Enter rock, paper, or scissors: ");
+function getHumanChoice() {
+    let choice;
+    do {
+        choice = prompt("Enter rock, paper, or scissors: ");
+        if (!choice) continue; // if they hit cancel or enter nothing, ask again
+        choice = choice.toLowerCase();
+    } while (choice !== "rock" && choice !== "paper" && choice !== "scissors");
+    
     return choice;
 }
 
